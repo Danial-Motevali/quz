@@ -6,20 +6,15 @@ namespace WebApplication2.Controllers
     {
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Login(LoginViewModel model)
+        public ActionResult Login(Index model)
         {
-            
-            Session["Username"] = model.Username;
+            Session["Name"] = model.Name; ;
 
-            HttpCookie cookie = new HttpCookie("Username", model.Username);
+            var cookie = new HttpCookie("MyCookie", "CookieValue");
+            cookie.Expires = DateTime.Now;
             Response.Cookies.Add(cookie);
 
             return RedirectToAction("Index", "Home");
-        }
-        public IActionResult Index()
-        {
-
-            return View();
         }
     }
 }

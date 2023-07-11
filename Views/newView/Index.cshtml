@@ -3,7 +3,10 @@
 *@
 @{
 }
-@model LoginViewModel
+@model IndexViewModel
 
 @Html.AntiForgeryToken()
-<input asp-controller="Hello" placeholder="name" value="Name" />
+<form asp-controller="Hello" asp-action="Index">
+    <input asp-controller="Hello" placeholder="name" value="Name" />
+    <button type="submit">add</button>
+</form>
